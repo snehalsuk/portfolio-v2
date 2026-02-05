@@ -22,8 +22,8 @@ export const About: React.FC = () => {
             Over the past{" "}
             <span className="text-blue-500 font-black">2+ years</span>, I have
             evolved from a builder of components to an architect of ecosystems.
-            Snehal Sukhadeve is synonymous with technical resilience and
-            high-fidelity user experiences.
+            My work is synonymous with technical resilience and high-fidelity
+            user experiences.
           </p>
           <div className="grid grid-cols-2 gap-12 py-8">
             <div className="space-y-2">
