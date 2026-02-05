@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { WHATSAPP_URL } from "../constants";
 
 interface NavbarProps {
@@ -18,11 +19,11 @@ export const Navbar: React.FC<NavbarProps> = ({
   const isScrolled = scrollY > 50;
 
   const navLinks = [
-    { name: "Home", href: "#home", key: "home" },
-    { name: "About", href: "#about", key: "about" },
-    { name: "Services", href: "#services", key: "services" },
-    { name: "Work", href: "#projects", key: "projects" },
-    { name: "Journey", href: "#journey", key: "journey" },
+    { name: "Home", href: "/", key: "home" },
+    { name: "About", href: "/about", key: "about" },
+    { name: "Services", href: "/services", key: "services" },
+    { name: "Work", href: "/work", key: "projects" },
+    { name: "Journey", href: "/journey", key: "journey" },
   ];
 
   useEffect(() => {
@@ -43,15 +44,15 @@ export const Navbar: React.FC<NavbarProps> = ({
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled ? "py-4" : "py-8"}`}
       >
         <div
-          className={`container mx-auto px-6 lg:px-24 flex justify-between items-center transition-all duration-500 ${isScrolled ? "glass-card rounded-full shadow-2xl px-8 md:px-12 max-w-7xl mt-4 mx-auto border dark:border-white/5 border-slate-200" : ""}`}
+          className={`container mx-auto px-6 lg:px-24 flex justify-between items-center transition-all duration-500 ${isScrolled ? "glass-card rounded-full shadow-2xl px-8 md:px-12 max-w-7xl mt-4 mx-auto" : ""}`}
         >
-          <a
-            href="#home"
+          <Link
+            href="/"
             className="text-2xl font-display font-black tracking-tighter cursor-pointer group flex items-center gap-3"
           >
             <div className="w-10 h-10 rounded-xl flex items-center justify-center group-hover:rotate-[15deg] transition-all shadow-lg shadow-blue-500/30">
               <img
-                src="/assets/midnighsun_logo.png"
+                src="/images/midnighsun_logo.png"
                 alt="Brand Logo"
                 className="w-10 h-10 object-contain"
               />
@@ -60,12 +61,12 @@ export const Navbar: React.FC<NavbarProps> = ({
               SNEHAL
             </span>
             <span className="text-blue-500 -ml-1">.</span>
-          </a>
+          </Link>
 
           <ul className="hidden xl:flex gap-10 items-center">
             {navLinks.map((link) => (
               <li key={link.key}>
-                <a
+                <Link
                   href={link.href}
                   className={`text-[11px] font-black transition-all uppercase tracking-[0.25em] relative group py-2 ${
                     activeView === link.key
@@ -81,7 +82,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                         : "w-0 group-hover:w-1/2"
                     }`}
                   ></span>
-                </a>
+                </Link>
               </li>
             ))}
 
@@ -114,8 +115,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               </a>
 
               <li>
-                <a
-                  href="#contact"
+                <Link
+                  href="/contact"
                   className={`px-8 py-3 rounded-2xl text-[11px] font-black uppercase tracking-widest transition-all transform hover:scale-105 shadow-2xl shadow-blue-600/20 active:translate-y-1 ${
                     activeView === "contact"
                       ? "bg-blue-600 text-white"
@@ -123,7 +124,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   }`}
                 >
                   Connect
-                </a>
+                </Link>
               </li>
             </div>
           </ul>
@@ -174,7 +175,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 style={{ transitionDelay: `${idx * 100}ms` }}
                 className={`transform transition-all duration-700 ${isMenuOpen ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
               >
-                <a
+                <Link
                   href={link.href}
                   onClick={handleLinkClick}
                   className={`text-3xl md:text-4xl font-display font-black uppercase tracking-tighter ${
@@ -184,20 +185,20 @@ export const Navbar: React.FC<NavbarProps> = ({
                   }`}
                 >
                   {link.name}
-                </a>
+                </Link>
               </li>
             ))}
             <li
               style={{ transitionDelay: `${navLinks.length * 100}ms` }}
               className={`pt-4 md:pt-8 transform transition-all duration-700 ${isMenuOpen ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"} flex flex-col items-center gap-4`}
             >
-              <a
-                href="#contact"
+              <Link
+                href="/contact"
                 onClick={handleLinkClick}
                 className="inline-block px-10 py-4 md:px-12 md:py-5 rounded-2xl bg-blue-600 text-white font-black uppercase tracking-widest text-xs md:text-sm shadow-2xl shadow-blue-600/30"
               >
                 Let's Connect
-              </a>
+              </Link>
               <a
                 href={WHATSAPP_URL}
                 target="_blank"

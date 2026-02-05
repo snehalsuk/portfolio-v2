@@ -69,7 +69,7 @@ export const Contact: React.FC = () => {
 
         <div className="space-y-4 md:space-y-6">
           <a
-            href="mailto:snehal@sukhadeve.dev"
+            href="mailto:ssnehalsukhadeve@gmail.com"
             className="flex items-center gap-4 md:gap-6 group cursor-pointer p-2 rounded-3xl hover:bg-blue-500/5 transition-all"
           >
             <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl md:rounded-3xl dark:bg-white/5 bg-white flex items-center justify-center border dark:border-white/10 border-slate-200 group-hover:bg-blue-600 group-hover:border-blue-600 transition-all shadow-xl">
@@ -80,7 +80,7 @@ export const Contact: React.FC = () => {
                 Email Protocol
               </p>
               <p className="text-sm md:text-lg font-bold dark:text-white text-slate-900 group-hover:text-blue-500 transition-colors">
-                snehal@sukhadeve.dev
+                ssnehalsukhadeve@gmail.com
               </p>
             </div>
           </a>

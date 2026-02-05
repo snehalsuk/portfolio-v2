@@ -59,8 +59,7 @@ export const PROJECTS: Project[] = [
     description:
       "A comprehensive HR management platform handling employee lifecycle, payroll, and performance tracking.",
     tags: ["Frappe", "React", "Python", "MariaDB"],
-    imageUrl:
-      "https://images.unsplash.com/photo-1551288049-bbda38a10ad5?auto=format&fit=crop&q=80&w=1200",
+    imageUrl: "/images/hr-app.jpg",
     category: "ERP",
     link: "#",
   },
@@ -70,8 +69,7 @@ export const PROJECTS: Project[] = [
     description:
       "A specialized legal tech solution for tracking cases, hearings, and legal documentation efficiently.",
     tags: ["React", "Node.js", "AWS", "Security"],
-    imageUrl:
-      "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=1200",
+    imageUrl: "/images/lms.jpg",
     category: "ERP",
   },
   {
@@ -80,8 +78,7 @@ export const PROJECTS: Project[] = [
     description:
       "An end-to-end travel booking and expense management system for corporate travel needs.",
     tags: ["React", "Frappe", "REST API", "Maps Integration"],
-    imageUrl:
-      "https://images.unsplash.com/photo-1436491865332-7a615109cc05?auto=format&fit=crop&q=80&w=1200",
+    imageUrl: "/images/snehal_optimized_100.jpeg",
     category: "ERP",
   },
   {
@@ -90,8 +87,7 @@ export const PROJECTS: Project[] = [
     description:
       "A mobile companion for the HR system, allowing employees to mark attendance and view payslips on the go.",
     tags: ["React Native", "Mobile", "Android", "API"],
-    imageUrl:
-      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=1200",
+    imageUrl: "/images/hr-app.jpg",
     category: "Mobile",
   },
 ];
@@ -104,7 +100,6 @@ export const EXPERIENCES: Experience[] = [
     period: "Oct 2023 - Present",
     responsibilities: [
       "Leading development of core enterprise modules including HR, CRM, and Litigation Management Systems.",
-      "Integrating Generative AI workflows using Gemini Flash and n8n to automate complex business processes.",
       "Architecting scalable cloud solutions on AWS for high-availability enterprise applications.",
     ],
     skills: ["React", "Frappe", "AWS", "AI Integration"],
@@ -113,13 +108,12 @@ export const EXPERIENCES: Experience[] = [
     id: "e2",
     company: "PrepForTech",
     position: "Full Stack Developer (Internship)",
-    period: "Apr 2022 - Jan 2025",
+    period: "Apr 2022 - Sep 2023",
     responsibilities: [
-      "Developed and maintained the Travel Management System (TMS) and customer-facing CRM portals.",
-      "Built the Human Resource Android Application using React Native for cross-platform compatibility.",
+      "Developed robust web applications using React.js and Java, ensuring seamless user experiences.",
       "Collaborated with cross-functional teams to deliver robust full-stack solutions.",
     ],
-    skills: ["React Native", "JavaScript", "Python"],
+    skills: ["React.js", "Java", "React Native", "JavaScript", "Python"],
   },
 ];
 

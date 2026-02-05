@@ -1,10 +1,12 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { Hero } from "./components/Hero";
 import { Navbar } from "./components/Navbar";
 import { Projects } from "./components/Projects";
 import { Skills } from "./components/Skills";
+import { GitStats } from "./components/GitStats";
 import { ExperienceTimeline } from "./components/ExperienceTimeline";
 import { GeminiChat } from "./components/GeminiChat";
 import { Footer } from "./components/Footer";
@@ -24,68 +26,64 @@ type PageView =
 type Theme = "dark" | "light";
 
 const App: React.FC = () => {
+  const pathname = usePathname();
+  const router = useRouter();
   const [scrollY, setScrollY] = useState(0);
   const [activeView, setActiveView] = useState<PageView>("home");
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [theme, setTheme] = useState<Theme>("dark");
+  const [theme, setTheme] = useState<Theme>(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("snehal-theme");
+      if (saved) return saved as Theme;
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches)
+        return "dark";
+    }
+    return "dark";
+  });
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("snehal-theme");
-      if (saved) {
-        setTheme(saved as Theme);
-      }
-    }
   }, []);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
-
-    const handleNavigation = () => {
-      const hash = window.location.hash.replace("#", "") as PageView;
-      const validPages: PageView[] = [
-        "home",
-        "about",
-        "projects",
-        "journey",
-        "contact",
-        "services",
-      ];
-
-      const targetPage = validPages.includes(hash) ? hash : "home";
-
-      if (targetPage !== activeView) {
-        setIsTransitioning(true);
-        setTimeout(() => {
-          setActiveView(targetPage);
-          window.scrollTo({ top: 0, behavior: "instant" });
-          setIsTransitioning(false);
-        }, 600);
-      }
-    };
-
     window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("hashchange", handleNavigation);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-    // Initial load check
-    const initialHash = window.location.hash.replace("#", "") as PageView;
-    if (
-      initialHash &&
-      ["home", "about", "projects", "journey", "contact", "services"].includes(
-        initialHash,
-      )
-    ) {
-      setActiveView(initialHash);
+  useEffect(() => {
+    // Extract first segment of path (e.g. /about -> about)
+    // Handle root path '/' which results in empty string or undefined
+    const pathSegment = pathname ? pathname.split("/")[1] : "";
+    const currentPath = pathSegment || "home";
+
+    // Map 'work' URL to 'projects' internal view
+    const mappedView = currentPath === "work" ? "projects" : currentPath;
+
+    const validPages: PageView[] = [
+      "home",
+      "about",
+      "projects",
+      "journey",
+      "contact",
+      "services",
+    ];
+
+    const targetPage = validPages.includes(mappedView as PageView)
+      ? (mappedView as PageView)
+      : "home";
+
+    if (targetPage !== activeView) {
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setActiveView(targetPage);
+        window.scrollTo({ top: 0, behavior: "instant" });
+        setIsTransitioning(false);
+      }, 600);
     }
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("hashchange", handleNavigation);
-    };
-  }, [activeView]);
+  }, [pathname]);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -103,14 +101,14 @@ const App: React.FC = () => {
 
   const handleFilterChange = (filter: string | null) => {
     setActiveFilter(filter);
-    window.location.hash = "projects";
+    router.push("/work");
   };
 
   const renderContent = () => {
     switch (activeView) {
       case "home":
         return (
-          <div className="space-y-40">
+          <div>
             <Hero />
             <section className="py-20">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-16">
@@ -127,17 +125,20 @@ const App: React.FC = () => {
               />
             </section>
             <section className="py-20">
+              <GitStats theme={theme} />
+            </section>
+            <section className="py-20">
               <div className="flex justify-between items-end mb-16">
                 <h2 className="text-5xl lg:text-7xl font-display font-black dark:text-white text-slate-900 uppercase">
                   Selected Work
                 </h2>
-                <a
-                  href="#projects"
+                <button
+                  onClick={() => router.push("/work")}
                   className="text-blue-500 font-mono text-xs uppercase tracking-[0.3em] hover:text-blue-700 dark:hover:text-white transition-all group flex items-center gap-3"
                 >
                   View Archive
                   <i className="fa-solid fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
-                </a>
+                </button>
               </div>
               <Projects
                 activeFilter={null}

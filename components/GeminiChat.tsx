@@ -49,7 +49,7 @@ export const GeminiChat: React.FC = () => {
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center shadow-lg border border-white/10">
                 <img
-                  src="/assets/Gemini_AI.jpeg"
+                  src="/images/Gemini_AI.jpeg"
                   alt="Gemini AI"
                   className="w-full h-full object-cover"
                 />
@@ -79,8 +79,7 @@ export const GeminiChat: React.FC = () => {
             {messages.length === 0 && (
               <div className="py-4">
                 <p className="text-gray-400 text-xs mb-6 text-center italic">
-                  Snehal's AI can answer deep technical or career-related
-                  questions.
+                  Ask about my 2+yr journey...
                 </p>
                 <div className="grid grid-cols-1 gap-2">
                   {examplePrompts.map((prompt, idx) => (
@@ -125,7 +124,7 @@ export const GeminiChat: React.FC = () => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSend()}
-              placeholder="Ask about my 10yr journey..."
+              placeholder="Ask about my 2+yr journey..."
               className="flex-1 bg-white/5 border border-white/10 rounded-full px-4 py-3 text-xs text-white focus:outline-none focus:border-blue-500 transition-colors placeholder:text-gray-500"
             />
             <button
@@ -142,7 +141,7 @@ export const GeminiChat: React.FC = () => {
           className="w-14 h-14 md:w-16 md:h-16 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all group overflow-hidden border-2 border-blue-500 bg-black"
         >
           <img
-            src="/assets/Gemini_AI.jpeg"
+            src="/images/Gemini_AI.jpeg"
             alt="Gemini AI"
             className="w-full h-full object-cover"
           />

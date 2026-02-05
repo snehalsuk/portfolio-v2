@@ -122,9 +122,17 @@ export const NeuralNetwork3D: React.FC<{
     const animate = () => {
       ctx.clearRect(0, 0, width, height);
       
-      // Auto-rotation
-      rotationX += 0.0015 * speed;
-      rotationY += 0.001 * speed;
+      // Auto-rotation with Mouse Influence
+      if (mouseRef.current.active) {
+        // More reactive rotation based on mouse position
+        const targetRotX = (mouseRef.current.y / height) * 2; 
+        const targetRotY = (mouseRef.current.x / width) * 2;
+        rotationX += (targetRotX - rotationX) * 0.05;
+        rotationY += (targetRotY - rotationY) * 0.05;
+      } else {
+        rotationX += 0.0015 * speed;
+        rotationY += 0.001 * speed;
+      }
 
       // Update positions with physics
       nodes.forEach(n => {
@@ -143,10 +151,10 @@ export const NeuralNetwork3D: React.FC<{
           const dx = n.x - mouseRef.current.x;
           const dy = n.y - mouseRef.current.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < interactionRadius) {
-            const force = (interactionRadius - dist) / interactionRadius;
-            n.x += dx * force * 0.05;
-            n.y += dy * force * 0.05;
+          if (dist < interactionRadius * 1.5) { // Increased radius
+            const force = (interactionRadius * 1.5 - dist) / (interactionRadius * 1.5);
+            n.x += dx * force * 0.2; // Increased force
+            n.y += dy * force * 0.2;
           }
         }
 

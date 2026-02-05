@@ -36,7 +36,7 @@ export const About: React.FC = () => {
             </div>
             <div className="space-y-2">
               <p className="text-4xl md:text-5xl font-display font-black dark:text-white text-slate-900">
-                10+
+                5+
               </p>
               <p className="text-xs dark:text-gray-600 text-slate-400 uppercase tracking-[0.3em] font-black">
                 Systems Shipped
@@ -47,7 +47,7 @@ export const About: React.FC = () => {
         <div className="relative">
           <div className="aspect-[4/5] rounded-[2.5rem] md:rounded-[4rem] overflow-hidden electric-card dark:bg-zinc-900 bg-white shadow-3xl group border-2 dark:border-white/5 border-slate-200">
             <img
-              src="/assets/snehal_aboutus.jpeg"
+              src="/images/snehal_aboutus.jpeg"
               alt="Snehal Sukhadeve"
               className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-[1500ms] group-hover:scale-110"
             />
@@ -66,9 +66,9 @@ export const About: React.FC = () => {
                 <p className="text-sm font-black uppercase tracking-widest dark:text-white text-slate-900">
                   Senior Software Engineer
                 </p>
-                <p className="text-xs dark:text-gray-500 text-slate-400 uppercase font-mono mt-1">
+                {/* <p className="text-xs dark:text-gray-500 text-slate-400 uppercase font-mono mt-1">
                   Fault Tolerance // Observability
-                </p>
+                </p> */}
               </div>
             </div>
           </div>
@@ -151,7 +151,7 @@ export const About: React.FC = () => {
         <div className="inline-flex items-center gap-6 p-4 rounded-3xl dark:bg-white/5 bg-white border-2 dark:border-white/10 border-slate-200">
           <div className="w-16 h-16 rounded-2xl overflow-hidden grayscale">
             <img
-              src="/assets/snehal_aboutus.jpeg"
+              src="/images/snehal_aboutus.jpeg"
               alt="Signature"
               className="w-full h-full object-cover"
             />

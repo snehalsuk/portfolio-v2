@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { WHATSAPP_URL, LINKEDIN_URL } from "../constants";
 
 export const Footer: React.FC = () => {
@@ -6,52 +7,58 @@ export const Footer: React.FC = () => {
     <footer className="py-12 md:py-24 border-t border-white/5 relative overflow-hidden">
       <div className="container mx-auto px-6 lg:px-24 relative z-10">
         <div className="flex flex-col lg:flex-row justify-between items-center gap-8 md:gap-12 mb-10 md:mb-16">
-          <a
-            href="#home"
+          <Link
+            href="/"
             className="text-2xl md:text-3xl font-display font-black tracking-tighter cursor-pointer group flex items-center gap-2"
           >
             <span className="group-hover:text-blue-400 transition-colors uppercase dark:text-white text-slate-900">
               SNEHAL
             </span>
             <span className="text-blue-500">.</span>
-          </a>
+          </Link>
 
           <ul className="flex flex-wrap justify-center gap-6 md:gap-12 text-[9px] md:text-[10px] font-bold uppercase tracking-[0.3em] text-gray-500">
             <li>
-              <a href="#home" className="hover:text-white transition-colors">
+              <Link href="/" className="hover:text-white transition-colors">
                 Base
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#about" className="hover:text-white transition-colors">
+              <Link
+                href="/about"
+                className="hover:text-white transition-colors"
+              >
                 Expertise
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#services"
+              <Link
+                href="/services"
                 className="hover:text-white transition-colors"
               >
                 Solutions
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#projects"
+              <Link href="/work" className="hover:text-white transition-colors">
+                Archive
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/journey"
                 className="hover:text-white transition-colors"
               >
-                Archive
-              </a>
-            </li>
-            <li>
-              <a href="#journey" className="hover:text-white transition-colors">
                 Timeline
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#contact" className="hover:text-white transition-colors">
+              <Link
+                href="/contact"
+                className="hover:text-white transition-colors"
+              >
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
 
@@ -95,7 +102,7 @@ export const Footer: React.FC = () => {
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center pt-6 md:pt-8 border-t border-white/5 text-gray-700 text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-center md:text-left gap-4 md:gap-0">
-          <div>© 2024 SNEHAL SUKHADEVE // SENIOR ARCHITECT SYSTEM v10.4.0</div>
+          <div>© 2024 SNEHAL SUKHADEVE // SENIOR SOFTWARE ENGINEER</div>
           <div className="mt-0 md:mt-0 flex items-center gap-2">
             <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-blue-500 animate-pulse"></div>
             ENCRYPTED CONNECTION SECURE

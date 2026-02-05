@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { SERVICES } from "../constants";
 
 export const ServicesPage: React.FC = () => {
@@ -15,7 +16,7 @@ export const ServicesPage: React.FC = () => {
           STRATEGIC <br /> <span className="gradient-text">INTEGRATIONS</span>.
         </h2>
         <p className="text-lg md:text-2xl dark:text-gray-400 text-slate-600 leading-relaxed font-medium">
-          Leveraging 10 years of cross-functional engineering to provide
+          Leveraging 2 years of cross-functional engineering to provide
           high-stakes technical consulting, architecture design, and elite
           development.
         </p>
@@ -60,13 +61,13 @@ export const ServicesPage: React.FC = () => {
               </div>
 
               <div className="pt-6 md:pt-8 border-t dark:border-white/5 border-slate-100 flex justify-between items-center">
-                <a
-                  href="#contact"
+                <Link
+                  href="/contact"
                   className="text-[10px] md:text-xs font-black text-blue-500 uppercase tracking-[0.3em] flex items-center gap-3 md:gap-4 hover:text-blue-700 transition-all duration-300 group/btn hover:scale-105 active:scale-95 transform-gpu"
                 >
                   Initialize Project
                   <i className="fa-solid fa-arrow-right-long group-hover/btn:translate-x-3 transition-transform duration-300"></i>
-                </a>
+                </Link>
                 <span className="text-[8px] md:text-[9px] font-mono dark:text-gray-800 text-slate-200 uppercase tracking-widest opacity-50 group-hover:opacity-100 transition-opacity">
                   Priority Status: Green
                 </span>
@@ -103,12 +104,12 @@ export const ServicesPage: React.FC = () => {
           Let's build the future of your technical infrastructure.
         </p>
         <div className="pt-4 md:pt-8">
-          <a
-            href="#contact"
+          <Link
+            href="/contact"
             className="inline-flex px-10 py-5 md:px-16 md:py-8 bg-blue-600 hover:bg-white hover:text-black text-white font-black rounded-3xl transition-all duration-500 text-xs md:text-sm uppercase tracking-widest shadow-2xl shadow-blue-600/30 hover:scale-105 active:translate-y-1"
           >
             Secure Project Uplink
-          </a>
+          </Link>
         </div>
       </section>
     </div>

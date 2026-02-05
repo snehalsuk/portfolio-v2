@@ -1,98 +1,119 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 * {
-    transition: background-color 0.4s ease, border-color 0.4s ease;
+  transition:
+    background-color 0.4s ease,
+    border-color 0.4s ease;
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
 }
 
 /* Electric Flow Scrollbar */
 ::-webkit-scrollbar {
-    width: 4px;
+  width: 4px;
 }
 ::-webkit-scrollbar-track {
-    background: transparent;
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(to bottom, #3b82f6, #a855f7);
-    border-radius: 10px;
+  background: linear-gradient(to bottom, #3b82f6, #a855f7);
+  border-radius: 10px;
 }
 
 /* Flowing Border Animation */
 @keyframes borderFlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .electric-card {
-    position: relative;
-    overflow: hidden;
-    border-radius: 2.5rem;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border-radius: 2.5rem;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
 }
 
 /* Electric border hover effect */
 .electric-card::after {
-    content: "";
-    position: absolute;
-    inset: -2px;
-    background: linear-gradient(90deg, transparent, #3b82f6, #a855f7, transparent);
-    background-size: 200% 200%;
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    border-radius: 2.5rem;
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #3b82f6,
+    #a855f7,
+    transparent
+  );
+  background-size: 200% 200%;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  border-radius: 2.5rem;
 }
 
 .electric-card:hover::after {
-    opacity: 1;
-    animation: borderFlow 3s linear infinite;
+  opacity: 1;
+  animation: borderFlow 3s linear infinite;
 }
 
 .gradient-text {
-    background: linear-gradient(to right, #60a5fa, #a78bfa, #f472b6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 200% auto;
-    animation: borderFlow 5s ease infinite;
+  background: linear-gradient(to right, #60a5fa, #a78bfa, #f472b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: borderFlow 5s ease infinite;
 }
 
 .glass-card {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .dark .glass-card {
-    background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Scanline effect */
 .scanline {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        to bottom,
-        rgba(18, 16, 16, 0) 50%,
-        rgba(0, 0, 0, 0.1) 50%
-    );
-    background-size: 100% 4px;
-    z-index: 100;
-    pointer-events: none;
-    opacity: 0.05;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(18, 16, 16, 0) 50%,
+    rgba(0, 0, 0, 0.1) 50%
+  );
+  background-size: 100% 4px;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.05;
 }
 
 @keyframes shimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
