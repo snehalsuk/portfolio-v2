@@ -69,7 +69,7 @@ export const PROJECTS: Project[] = [
     description:
       "A specialized legal tech solution for tracking cases, hearings, and legal documentation efficiently.",
     tags: ["React", "Node.js", "AWS", "Security"],
-    imageUrl: "/images/lms.jpg",
+    imageUrl: "/images/litigation-system.jpg",
     category: "ERP",
   },
   {
@@ -78,7 +78,16 @@ export const PROJECTS: Project[] = [
     description:
       "An end-to-end travel booking and expense management system for corporate travel needs.",
     tags: ["React", "Frappe", "REST API", "Maps Integration"],
-    imageUrl: "/images/snehal_optimized_100.jpeg",
+    imageUrl: "/images/travel-system.jpg",
+    category: "ERP",
+  },
+  {
+    id: "5",
+    title: "Customer Relationship Management (CRM)",
+    description:
+      "A centralized system to manage customer interactions, sales pipelines, and support tickets for improved business growth.",
+    tags: ["Frappe", "React", "Python", "Analytics"],
+    imageUrl: "/images/crm-system.jpg",
     category: "ERP",
   },
   {

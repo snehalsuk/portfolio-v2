@@ -52,7 +52,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           >
             <div className="w-10 h-10 rounded-xl flex items-center justify-center group-hover:rotate-[15deg] transition-all shadow-lg shadow-blue-500/30">
               <img
-                src="/images/midnighsun_logo.png"
+                src="/images/logo.png"
                 alt="Brand Logo"
                 className="w-10 h-10 object-contain"
               />

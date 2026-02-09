@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Snehal Sukhadeve | Senior Software Architect",
   description:
     "Portfolio of Snehal Sukhadeve, a Senior Software Engineer specializing in React, Java, and System Architecture.",
+  icons: {
+    icon: "/images/logo.png",
+  },
 };
 
 export default function RootLayout({
