@@ -15,6 +15,7 @@ import { About } from "./components/About";
 import { Contact } from "./components/Contact";
 import { ServicesPage } from "./components/ServicesPage";
 import { WHATSAPP_URL } from "./constants";
+import { ScrollReveal } from "./components/ScrollReveal";
 
 type PageView =
   | "home"
@@ -111,35 +112,41 @@ const App: React.FC = () => {
           <div>
             <Hero />
             <section className="py-20">
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-16">
-                <h2 className="text-5xl lg:text-7xl font-display font-black flex items-center gap-6 dark:text-white text-slate-900 uppercase">
-                  <span className="text-blue-500 opacity-20 text-3xl font-mono">
-                    01/
-                  </span>
-                  Capability Matrix
-                </h2>
-              </div>
+              <ScrollReveal>
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-16">
+                  <h2 className="text-3xl sm:text-5xl lg:text-7xl font-display font-black flex items-center gap-6 dark:text-white text-slate-900 uppercase">
+                    <span className="text-blue-500 opacity-20 text-3xl font-mono">
+                      01/
+                    </span>
+                    Capability Matrix
+                  </h2>
+                </div>
+              </ScrollReveal>
               <Skills
                 activeFilter={activeFilter}
                 onSkillClick={handleFilterChange}
               />
             </section>
             <section className="py-20">
-              <GitStats theme={theme} />
+              <ScrollReveal direction="left">
+                <GitStats theme={theme} />
+              </ScrollReveal>
             </section>
             <section className="py-20">
-              <div className="flex justify-between items-end mb-16">
-                <h2 className="text-5xl lg:text-7xl font-display font-black dark:text-white text-slate-900 uppercase">
-                  Selected Work
-                </h2>
-                <button
-                  onClick={() => router.push("/work")}
-                  className="text-blue-500 font-mono text-xs uppercase tracking-[0.3em] hover:text-blue-700 dark:hover:text-white transition-all group flex items-center gap-3"
-                >
-                  View Archive
-                  <i className="fa-solid fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
-                </button>
-              </div>
+              <ScrollReveal>
+                <div className="flex justify-between items-end mb-16">
+                  <h2 className="text-3xl sm:text-5xl lg:text-7xl font-display font-black dark:text-white text-slate-900 uppercase">
+                    Selected Work
+                  </h2>
+                  <button
+                    onClick={() => router.push("/work")}
+                    className="text-blue-500 font-mono text-xs uppercase tracking-[0.3em] hover:text-blue-700 dark:hover:text-white transition-all group flex items-center gap-3"
+                  >
+                    View Archive
+                    <i className="fa-solid fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
+                  </button>
+                </div>
+              </ScrollReveal>
               <Projects
                 activeFilter={null}
                 onFilterChange={() => {}}
@@ -155,23 +162,25 @@ const App: React.FC = () => {
       case "projects":
         return (
           <div className="pt-24 md:pt-32 pb-12 md:pb-20">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 md:mb-16">
-              <h2 className="text-5xl md:text-6xl lg:text-8xl font-display font-black flex items-center gap-6 uppercase tracking-tighter dark:text-white text-slate-900">
-                <span className="text-purple-500 opacity-20 text-3xl font-mono">
-                  02/
-                </span>
-                Work
-              </h2>
-              {activeFilter && (
-                <button
-                  onClick={() => setActiveFilter(null)}
-                  className="text-[10px] font-mono uppercase tracking-widest bg-blue-500/10 text-blue-500 px-6 py-3 rounded-full border border-blue-500/20 hover:bg-blue-500/20 transition-all flex items-center gap-3 group"
-                >
-                  Reset Filter{" "}
-                  <i className="fa-solid fa-rotate-right group-hover:rotate-180 transition-transform duration-500"></i>
-                </button>
-              )}
-            </div>
+            <ScrollReveal>
+              <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 md:mb-16">
+                <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-display font-black flex items-center gap-6 uppercase tracking-tighter dark:text-white text-slate-900">
+                  <span className="text-purple-500 opacity-20 text-3xl font-mono">
+                    02/
+                  </span>
+                  Work
+                </h2>
+                {activeFilter && (
+                  <button
+                    onClick={() => setActiveFilter(null)}
+                    className="text-[10px] font-mono uppercase tracking-widest bg-blue-500/10 text-blue-500 px-6 py-3 rounded-full border border-blue-500/20 hover:bg-blue-500/20 transition-all flex items-center gap-3 group"
+                  >
+                    Reset Filter{" "}
+                    <i className="fa-solid fa-rotate-right group-hover:rotate-180 transition-transform duration-500"></i>
+                  </button>
+                )}
+              </div>
+            </ScrollReveal>
             <Projects
               activeFilter={activeFilter}
               onFilterChange={setActiveFilter}
@@ -181,12 +190,14 @@ const App: React.FC = () => {
       case "journey":
         return (
           <div className="pt-24 md:pt-32 pb-12 md:pb-20">
-            <h2 className="text-5xl md:text-6xl lg:text-8xl font-display font-black mb-10 md:mb-16 flex items-center gap-6 uppercase tracking-tighter dark:text-white text-slate-900">
-              <span className="text-pink-500 opacity-20 text-3xl font-mono">
-                03/
-              </span>
-              Journey
-            </h2>
+            <ScrollReveal>
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-display font-black mb-10 md:mb-16 flex items-center gap-6 uppercase tracking-tighter dark:text-white text-slate-900">
+                <span className="text-pink-500 opacity-20 text-3xl font-mono">
+                  03/
+                </span>
+                Journey
+              </h2>
+            </ScrollReveal>
             <ExperienceTimeline />
           </div>
         );
@@ -210,7 +221,7 @@ const App: React.FC = () => {
         href={WHATSAPP_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-24 right-4 md:bottom-32 md:right-8 z-[100] w-14 h-14 md:w-16 md:h-16 bg-[#25D366] rounded-full shadow-[0_10px_30px_rgba(37,211,102,0.4)] flex items-center justify-center hover:scale-110 active:scale-95 transition-all group overflow-hidden"
+        className="fixed bottom-24 right-4 md:bottom-32 md:right-10 z-[100] w-14 h-14 md:w-16 md:h-16 bg-[#25D366] rounded-full shadow-[0_10px_30px_rgba(37,211,102,0.4)] flex items-center justify-center hover:scale-110 active:scale-95 transition-all group overflow-hidden"
       >
         <span className="absolute inset-0 bg-white/20 scale-0 group-hover:scale-100 transition-transform duration-500 rounded-full"></span>
         <i className="fa-brands fa-whatsapp text-2xl md:text-3xl text-white relative z-10"></i>

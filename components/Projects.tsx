@@ -1,6 +1,7 @@
 import React, { useMemo, useState, useEffect, useRef } from "react";
 import { PROJECTS } from "../constants";
 import { Project } from "../types";
+import { ScrollReveal } from "./ScrollReveal";
 
 const TAG_DESCRIPTIONS: Record<string, string> = {
   Frappe:
@@ -45,7 +46,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   activeFilter,
   onFilterChange,
 }) => {
-  const [isVisible, setIsVisible] = useState(false);
   const [shouldLoadImg, setShouldLoadImg] = useState(false);
   const [imgLoaded, setImgLoaded] = useState(false);
   const [hoveredTag, setHoveredTag] = useState<string | null>(null);
@@ -56,7 +56,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
           setShouldLoadImg(true); // Trigger image load when card is near viewport
           observer.unobserve(entry.target);
         }
@@ -73,10 +72,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <div
       ref={cardRef}
-      className={`group relative overflow-hidden rounded-[2.5rem] dark:bg-zinc-900 bg-white border dark:border-white/5 border-slate-200 h-[400px] md:h-[500px] lg:h-[600px] shadow-2xl transition-all duration-[1000ms] ease-out ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-      }`}
-      style={{ transitionDelay: `${(index % 2) * 150}ms` }}
+      className="group relative overflow-hidden rounded-[2.5rem] dark:bg-zinc-900 bg-white border dark:border-white/5 border-slate-200 h-[400px] md:h-[500px] lg:h-[600px] shadow-2xl"
     >
       <div className="absolute inset-0 overflow-hidden bg-slate-200 dark:bg-zinc-800">
         {shouldLoadImg && (
@@ -149,7 +145,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           {project.description}
         </p>
         <div className="flex justify-between items-center overflow-hidden h-14">
-          <div className="flex items-center gap-5 transform translate-y-16 group-hover:translate-y-0 transition-transform duration-700 relative">
+          <div className="flex items-center gap-5 transform translate-y-0 md:translate-y-16 md:group-hover:translate-y-0 transition-transform duration-700 relative">
             <button className="w-14 h-14 rounded-full dark:bg-white bg-slate-900 text-white dark:text-black flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all duration-300 shadow-xl shadow-black/20">
               <i className="fa-solid fa-arrow-up-right-from-square"></i>
             </button>
@@ -272,13 +268,14 @@ export const Projects: React.FC<ProjectsProps> = ({
       )}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-14">
         {filteredProjects.map((project, i) => (
-          <ProjectCard
-            key={project.id}
-            project={project}
-            index={i}
-            activeFilter={activeFilter}
-            onFilterChange={onFilterChange}
-          />
+          <ScrollReveal key={project.id} delay={i * 0.1}>
+            <ProjectCard
+              project={project}
+              index={i}
+              activeFilter={activeFilter}
+              onFilterChange={onFilterChange}
+            />
+          </ScrollReveal>
         ))}
       </div>
     </div>

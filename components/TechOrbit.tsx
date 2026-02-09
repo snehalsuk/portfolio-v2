@@ -12,12 +12,12 @@ const TECH_ITEMS = [
 
 export const TechOrbit: React.FC = () => {
   return (
-    <div className="relative w-[300px] h-[300px] md:w-[500px] md:h-[500px] flex items-center justify-center">
+    <div className="relative w-[280px] h-[280px] sm:w-[300px] sm:h-[300px] md:w-[500px] md:h-[500px] lg:w-[400px] lg:h-[400px] xl:w-[550px] xl:h-[550px] flex items-center justify-center">
       {/* Orbits */}
       <div className="absolute inset-0 border border-white/5 rounded-full" />
       <div className="absolute inset-12 md:inset-20 border border-white/5 rounded-full" />
       <div className="absolute inset-24 md:inset-40 border border-white/5 rounded-full" />
-      
+
       {/* Radar Lines */}
       <div className="absolute w-full h-px bg-white/5" />
       <div className="absolute w-px h-full bg-white/5" />
@@ -45,9 +45,15 @@ export const TechOrbit: React.FC = () => {
             }}
           >
             {item.type === "icon" ? (
-              <i className={`${item.value} text-2xl md:text-3xl ${item.color} group-hover:animate-bounce`}></i>
+              <i
+                className={`${item.value} text-2xl md:text-3xl ${item.color} group-hover:animate-bounce`}
+              ></i>
             ) : (
-              <span className={`text-xl md:text-2xl font-bold ${item.color} group-hover:animate-pulse`}>{item.value}</span>
+              <span
+                className={`text-xl md:text-2xl font-bold ${item.color} group-hover:animate-pulse`}
+              >
+                {item.value}
+              </span>
             )}
           </div>
         );

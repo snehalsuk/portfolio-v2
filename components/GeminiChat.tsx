@@ -12,13 +12,13 @@ export const GeminiChat: React.FC = () => {
 
   const examplePrompts = [
     "What's Snehal's approach to Micro-frontends?",
-    "Tell me about her Java backend expertise.",
-    "Explain her experience with Frappe ERP.",
-    "Has she built FinTech applications before?",
-    "What leadership roles has she held?",
-    "Tell me about a high-performance system she built.",
-    "How does she bridge Frontend and Java Backends?",
-    "What is her experience with React Native?",
+    "Tell me about his Java backend expertise.",
+    "Explain his experience with Frappe ERP.",
+    "Has he built FinTech applications before?",
+    "What leadership roles has he held?",
+    "Tell me about a high-performance system he built.",
+    "How does he bridge Frontend and Java Backends?",
+    "What is his experience with React Native?",
   ];
 
   useEffect(() => {
@@ -42,17 +42,13 @@ export const GeminiChat: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-8 right-8 z-[100]">
+    <div className="fixed bottom-6 right-4 md:bottom-10 md:right-10 z-[110]">
       {isOpen ? (
-        <div className="w-[380px] h-[600px] max-h-[80vh] bg-black/90 backdrop-blur-xl border border-white/20 rounded-[2rem] shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in duration-300">
+        <div className="w-[340px] md:w-[380px] h-[500px] md:h-[600px] max-h-[80vh] bg-black/90 backdrop-blur-xl border border-white/20 rounded-[2rem] shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in duration-300 origin-bottom-right">
           <div className="p-4 pt-5 border-b border-white/10 bg-white/5 flex justify-between items-center shrink-0">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center shadow-lg border border-white/10">
-                <img
-                  src="/images/Gemini_AI.jpeg"
-                  alt="Gemini AI"
-                  className="w-full h-full object-cover"
-                />
+              <div className="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center shadow-lg border border-white/10 bg-blue-600">
+                <i className="fa-solid fa-wand-magic-sparkles text-white text-lg"></i>
               </div>
               <div>
                 <h4 className="font-bold text-base text-white">
@@ -75,7 +71,10 @@ export const GeminiChat: React.FC = () => {
             </button>
           </div>
 
-          <div ref={scrollRef} className="flex-1 overflow-y-auto p-6 space-y-4">
+          <div
+            ref={scrollRef}
+            className="flex-1 overflow-y-auto p-4 md:p-6 space-y-4"
+          >
             {messages.length === 0 && (
               <div className="py-4">
                 <p className="text-gray-400 text-xs mb-6 text-center italic">
@@ -101,7 +100,7 @@ export const GeminiChat: React.FC = () => {
                 className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}
               >
                 <div
-                  className={`max-w-[85%] p-4 rounded-2xl text-sm leading-relaxed ${m.role === "user" ? "bg-blue-600 text-white rounded-tr-none shadow-lg" : "bg-white/10 text-gray-200 rounded-tl-none border border-white/5"}`}
+                  className={`max-w-[85%] p-3 md:p-4 rounded-2xl text-sm leading-relaxed ${m.role === "user" ? "bg-blue-600 text-white rounded-tr-none shadow-lg" : "bg-white/10 text-gray-200 rounded-tl-none border border-white/5"}`}
                 >
                   {m.text}
                 </div>
@@ -138,15 +137,11 @@ export const GeminiChat: React.FC = () => {
       ) : (
         <button
           onClick={() => setIsOpen(true)}
-          className="w-14 h-14 md:w-16 md:h-16 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all group overflow-hidden border-2 border-blue-500 bg-black"
+          className="w-14 h-14 md:w-16 md:h-16 rounded-full shadow-[0_0_40px_rgba(37,99,235,0.3)] flex items-center justify-center hover:scale-110 active:scale-95 transition-all group overflow-hidden border border-white/20 bg-gradient-to-br from-blue-600 to-purple-600"
         >
-          <img
-            src="/images/Gemini_AI.jpeg"
-            alt="Gemini AI"
-            className="w-full h-full object-cover"
-          />
+          <i className="fa-solid fa-wand-magic-sparkles text-2xl md:text-3xl text-white"></i>
           {/* Pulse indicator */}
-          <span className="absolute inset-0 rounded-full bg-blue-600 animate-ping opacity-20 -z-10"></span>
+          <span className="absolute inset-0 rounded-full bg-white animate-ping opacity-20 -z-10"></span>
         </button>
       )}
     </div>

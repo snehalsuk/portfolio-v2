@@ -1,11 +1,12 @@
 import React from "react";
 import Link from "next/link";
 import { WHATSAPP_URL, LINKEDIN_URL } from "../constants";
+import { ScrollReveal } from "./ScrollReveal";
 
 export const Footer: React.FC = () => {
   return (
     <footer className="py-12 md:py-24 border-t border-white/5 relative overflow-hidden">
-      <div className="container mx-auto px-6 lg:px-24 relative z-10">
+      <ScrollReveal direction="up" className="container mx-auto px-6 lg:px-24 relative z-10">
         <div className="flex flex-col lg:flex-row justify-between items-center gap-8 md:gap-12 mb-10 md:mb-16">
           <Link
             href="/"
@@ -100,15 +101,16 @@ export const Footer: React.FC = () => {
             </a> */}
           </div>
         </div>
-
-        <div className="flex flex-col md:flex-row justify-between items-center pt-6 md:pt-8 border-t border-white/5 text-gray-700 text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-center md:text-left gap-4 md:gap-0">
-          <div>© 2024 SNEHAL SUKHADEVE // SENIOR SOFTWARE ENGINEER</div>
-          <div className="mt-0 md:mt-0 flex items-center gap-2">
-            <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-blue-500 animate-pulse"></div>
-            ENCRYPTED CONNECTION SECURE
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-10 md:pt-16 border-t border-white/5">
+          <p className="text-[10px] md:text-xs text-gray-500 font-mono">
+            © {new Date().getFullYear()} Snehal Sukhadeve. All systems nominal.
+          </p>
+          <div className="flex items-center gap-2 text-[10px] md:text-xs text-gray-600 font-mono">
+            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+            OPERATIONAL
           </div>
         </div>
-      </div>
+      </ScrollReveal>
     </footer>
   );
 };

@@ -1,18 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { NeuralNetwork3D } from "./NeuralNetwork3D";
 import { StarField } from "./StarField";
 import { TechOrbit } from "./TechOrbit";
 import { WHATSAPP_URL } from "../constants";
 
 export const Hero: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), 100);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <div className="min-h-screen flex items-center justify-center relative overflow-hidden pt-24 pb-20">
       {/* Top Center Purple Glow */}
@@ -28,11 +22,14 @@ export const Hero: React.FC = () => {
 
       <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center z-10">
         {/* Left Column: Content */}
-        <div
-          className={`space-y-10 transition-all duration-1000 transform ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="space-y-10"
         >
           {/* Heading */}
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-black leading-[1.1] tracking-tight dark:text-white text-slate-900">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-8xl font-display font-black leading-[1.1] tracking-tight dark:text-white text-slate-900">
             Turning ideas into <br />
             <span className="bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent italic pr-2">
               scalable
@@ -68,14 +65,17 @@ export const Hero: React.FC = () => {
               DIRECT UPLINK
             </a>
           </div>
-        </div>
+        </motion.div>
 
         {/* Right Column: Tech Orbit */}
-        <div
-          className={`flex justify-center lg:justify-end transition-all duration-1000 delay-300 transform ${isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"}`}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+          className="flex justify-center lg:justify-end"
         >
           <TechOrbit />
-        </div>
+        </motion.div>
       </div>
 
       {/* Decorative Side Text */}
